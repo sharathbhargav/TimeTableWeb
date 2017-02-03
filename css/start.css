@@ -1,0 +1,34 @@
+body{
+    background:#202020;
+}
+.radio-inline{
+    color: #ffffff;
+vertical-align: middle;
+    text-align: center;
+    font-size: 18px;
+
+}
+.timeSwitch {
+
+    margin: auto;
+    text-align: center;
+
+}
+
+#mainDiv
+{
+    width: 500px;
+    height: 25vh; /* %-height of the viewport */
+    position: relative;
+
+
+}
+
+#mainDivSchedule
+{
+    width: 600px;
+    height: 50vh; /* %-height of the viewport */
+    position: relative;
+    overflow-y: scroll;
+
+}

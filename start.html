@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+
+    <title>Akagami</title>
+
+</head>
+<body>
+<div id="nav">
+<nav class="navbar navbar-inverse">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <a class="navbar-brand" href="#"><strong>Shirohige</strong></a>
+        </div>
+        <ul class="nav navbar-nav">
+            <li class="active" id="currentNav" onclick="changeNavCurrent()" onselect="changeNavCurrent()"><a href="#" >Search at current</a></li>
+            <li  id="scheduleNav"  onclick="changeNavSchedule()"><a href="#">Entire Day Schedules</a></li>
+
+        </ul>
+
+    </div>
+</nav>
+</div>
+
+
+
+<div id="clock">
+<iframe src="index.html" name="targetframe" allowTransparency="true" scrolling="no" frameborder="0" style="height:100%;width:100%;position:relative;top:20px;bottom:0px;" ></iframe>
+</div>
+
+<div id="mainFragment" style="display: block" >
+    <div id="searchBar1">
+      <div class="container">
+        <div class="row">
+
+            <div id="custom-search-input1">
+                <div class="input-group col-md-12">
+                    <input type="text" class="  search-query form-control" placeholder="Search" id="currentSearchBox" />
+                                <span class="input-group-btn">
+                                    <button class="btn btn-danger" type="button" id="currentSearchButton" onclick="currentSearchButtonClick();console.log('Current clicked')">
+                                        <span class=" glyphicon glyphicon-search"></span>
+                                    </button>
+                                </span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<div id="currentDisplay" style="padding-top: 5%;display: none;">
+
+    <div class="container " id="mainDiv">
+
+        <hr>
+
+            <div class="col-md-6" style="text-align: center; color: #ffffff; background-color: #000000; padding: 0%" id="displayCurrentCol1">
+                <h3>Post Title  1</h3>
+
+            </div>
+            <div class="col-md-6" style="text-align: center; color: #ffffff; background-color: #000000; padding: 0%" id="displayCurrentCol2">
+                <h3>Post Title  2</h3>
+
+
+            </div>
+
+        </div>
+</div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div id="scheduleFragment" style="display: none">
+    <div id="searchBar">
+        <div class="container">
+            <div class="row">
+
+                <div id="custom-search-input2">
+                    <div class="input-group col-md-12">
+                        <input type="text" class="  search-query form-control" placeholder="Search" id="scheduleSearchBox" />
+                                <span class="input-group-btn">
+                                    <button class="btn btn-danger" type="button" id="scheduleSearchButton" onclick="scheduleSearchButtonClick(document.getElementById('scheduleSearchBox').value.toString())">
+                                        <span class=" glyphicon glyphicon-search"></span>
+                                    </button>
+                                </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+    <div id="displaySchedule" style="padding-top:5%;display: none " >
+        <div class="container " id="mainDivSchedule">
+
+            <hr>
+
+            <div class="col-md-3" style="text-align: center; color: #ffffff; background-color: #000000; padding: 0%" id="displayScheduleCol1">
+
+
+            </div>
+            <div class="col-md-9" style="text-align: center; color: #ffffff; background-color: #000000; padding: 0%" id="displayScheduleCol2">
+
+
+
+            </div>
+
+        </div>
+
+    </div>
+</div>
+
+
+</body>
+<link rel="stylesheet" type="text/css" href="css\bootstrap.css">
+<link rel="stylesheet" type="text/css" href="css\start.css">
+<link rel="stylesheet" type="text/css" href="css\searchBar.css">
+<script src="js\jquery-3.1.1.min.js"></script>
+
+<script src="js\bootstrap.js"></script>
+
+<!--script src="bootstrap-datetimepicker.js"></script-->
+<script src="main.js"></script>
+<script src="js\timeSwitch.js"></script>
+
+
+</html>
