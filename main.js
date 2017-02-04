@@ -3,6 +3,7 @@
  */
 var mainFragment,scheduleFragment;
 var random=0;
+window.onload=addValueToSpinner();
 function changeNavCurrent()
 {
    mainFragment =document.getElementById('mainFragment');
@@ -33,15 +34,7 @@ function changeNavSchedule()
 
 
 
-function currentSearchButtonClick()
-{
-    console.log("current search button clicked");
-    document.getElementById('currentDisplay').style.display='block';
-    //display();
-}
 
-
-function scheduleSearchButtonClick(keyword)
 {
     document.getElementById('displaySchedule').style.display='block';
     displaySchedule();
@@ -95,5 +88,85 @@ function displaySchedule()
 
     col1.appendChild(totalDiv1);
     col2.appendChild(totalDiv2);
+
+}
+
+
+function addValueToSpinner()
+{
+    for(var i=0;i<10;i++)
+    {
+        addItem("Room current "+i,i,'.RoomSchedulePicker');
+        addItem("Sem current "+i,i,'.SemSchedulePicker');
+        addItem("Room schedule "+i,i,'.RoomCurrentPicker');
+        addItem("Sem schedule "+i,i,'.SemCurrentPicker');
+    }
+}
+
+
+function addItem(name,val,picker) {
+    //$('.selectpicker').selectpicker();
+    $(picker).append('<option val="'+val+'">'+name+'</option>');
+   // $(picker).selectpicker('refresh');
+  //  $('.SemSchedulePicker').selectpicker('val', name);
+}
+
+
+function radioChange()
+{
+    console.log("Entering radio cange");
+    if(document.getElementById('facultyRadio').checked) {
+        console.log("Faculty set");
+        document.getElementById('searchBar1').style.display='block';
+        document.getElementById('RoomCurrentPicker').style.display='none';
+        document.getElementById('SemCurrentPicker').style.display='none';
+        document.getElementById('searchBarSchedule').style.display='block';
+        document.getElementById('RoomSchedulePicker').style.display='none';
+        document.getElementById('SemSchedulePicker').style.display='none';
+    }
+   else if(document.getElementById('semRadio').checked) {
+        console.log("Sem set");
+        document.getElementById('searchBar1').style.display='none';
+        document.getElementById('RoomCurrentPicker').style.display='none';
+        document.getElementById('SemCurrentPicker').style.display='block';
+        document.getElementById('searchBarSchedule').style.display='none';
+        document.getElementById('RoomSchedulePicker').style.display='none';
+        document.getElementById('SemSchedulePicker').style.display='block';
+    }
+    else if(document.getElementById('roomRadio').checked) {
+        console.log("room set");
+        document.getElementById('searchBar1').style.display='none';
+        document.getElementById('RoomCurrentPicker').style.display='block';
+        document.getElementById('SemCurrentPicker').style.display='none';
+        document.getElementById('searchBarSchedule').style.display='none';
+        document.getElementById('RoomSchedulePicker').style.display='block';
+        document.getElementById('SemSchedulePicker').style.display='none';
+    }
+}
+
+
+
+function currentSearchButton(keyword)
+{}
+
+
+function currentRoomButton(keyword)
+{}
+
+function currentSemButton(keyword)
+{}
+
+
+function scheduleSearchButton(keyword)
+{
+}
+
+
+function schedulrRoomButton(keyword)
+{}
+
+
+function schedulrSemButton(keyword)
+{
 
 }

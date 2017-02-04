@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
 
     <title>Akagami</title>
-
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.12.2/css/bootstrap-select.min.css">
 </head>
 <body>
 <div id="nav">
@@ -29,8 +29,32 @@
 <iframe src="index.html" name="targetframe" allowTransparency="true" scrolling="no" frameborder="0" style="height:100%;width:100%;position:relative;top:20px;bottom:0px;" ></iframe>
 </div>
 
+
+
+<div id="radioAll" style="padding-bottom: 2%;text-align: center">
+    <form >
+        <label class="radio-inline">
+            <input type="radio" name="optradio" id="facultyRadio" onchange="radioChange() ">Search Faculty name
+        </label>
+        <label class="radio-inline">
+            <input type="radio" name="optradio" id="roomRadio" onchange="radioChange()">Search Room number
+        </label>
+        <label class="radio-inline">
+            <input type="radio" name="optradio" id="semRadio" onchange="radioChange()">Search sem
+        </label>
+    </form>
+</div>
+
+
+
+
+
 <div id="mainFragment" style="display: block" >
-    <div id="searchBar1">
+
+
+
+
+    <div id="searchBar1" >
       <div class="container">
         <div class="row">
 
@@ -38,15 +62,41 @@
                 <div class="input-group col-md-12">
                     <input type="text" class="  search-query form-control" placeholder="Search" id="currentSearchBox" />
                                 <span class="input-group-btn">
-                                    <button class="btn btn-danger" type="button" id="currentSearchButton" onclick="currentSearchButtonClick();console.log('Current clicked')">
-                                        <span class=" glyphicon glyphicon-search"></span>
+                                    <!--button class="btn btn-danger" type="button" id="currentSearchButton" onclick="currentSearchButtonClick();console.log('Current clicked')">
+                                      -->  <span class=" glyphicon glyphicon-search"></span>
                                     </button>
                                 </span>
                 </div>
             </div>
         </div>
     </div>
+
+
+
+        <button type="button" class="btn btn-danger center-block" id="searchCurrentButton" style="margin-top: 2%">Submit</button>
+
+
 </div>
+
+
+
+    <div id="RoomCurrentPicker" style="text-align: center; display: none">
+    <select class="selectpicker RoomCurrentPicker" data-live-search="true" >
+    </select>
+
+        <button type="button" class="btn btn-danger center-block" id="roomCurrentButton" style="margin-top: 2%">Submit</button>
+
+    </div>
+
+    <div id="SemCurrentPicker" style="text-align: center; display: none">
+        <select class="selectpicker SemCurrentPicker" data-live-search="true" >
+        </select>
+
+        <button type="button" class="btn btn-danger center-block" id="semCurrentButton" style="margin-top: 2%">Submit</button>
+
+    </div>
+
+
 
 
 
@@ -77,15 +127,19 @@
 
 
 
-
-
-
-
-
-
-
 <div id="scheduleFragment" style="display: none">
-    <div id="searchBar">
+
+    <div id="dayPicker" style="text-align: center; padding-bottom: 2%">
+        <select class="selectpicker dayPickerr" data-live-search="true" >
+            <option>Monday</option>
+            <option>Tuesday</option>
+            <option>Wednesday</option>
+            <option>Thursday</option>
+            <option>Friday</option>
+            <option>Saturday</option>
+        </select>
+    </div>
+    <div id="searchBarSchedule">
         <div class="container">
             <div class="row">
 
@@ -93,18 +147,39 @@
                     <div class="input-group col-md-12">
                         <input type="text" class="  search-query form-control" placeholder="Search" id="scheduleSearchBox" />
                                 <span class="input-group-btn">
-                                    <button class="btn btn-danger" type="button" id="scheduleSearchButton" onclick="scheduleSearchButtonClick(document.getElementById('scheduleSearchBox').value.toString())">
-                                        <span class=" glyphicon glyphicon-search"></span>
+                                    <!--button class="btn btn-danger" type="button" id="scheduleSearchButton" onclick="scheduleSearchButtonClick(document.getElementById('scheduleSearchBox').value.toString())">
+                                     -->   <span class=" glyphicon glyphicon-search"></span>
                                     </button>
                                 </span>
                     </div>
                 </div>
             </div>
         </div>
+
+
+        <button type="button" class="btn btn-danger center-block" id="searchScheduleButton" style="margin-top: 2%">Submit</button>
+
+
     </div>
 
 
+    <div id="RoomSchedulePicker" style="text-align: center; display: none">
+        <select class="selectpicker RoomSchedulePicker" data-live-search="true" >
 
+        </select>
+
+                <button type="button" class="btn btn-danger center-block" id="roomScheduleButton" style="margin-top: 2%">Submit</button>
+
+    </div>
+
+    <div id="SemSchedulePicker" style="text-align: center; display: none">
+        <select class="selectpicker SemSchedulePicker" data-live-search="true" >
+
+        </select>
+
+        <button type="button" class="btn btn-danger center-block" id="semScheduleButton" style="margin-top: 2%">Submit</button>
+
+    </div>
 
 
     <div id="displaySchedule" style="padding-top:5%;display: none " >
@@ -137,8 +212,10 @@
 <script src="js\bootstrap.js"></script>
 
 <!--script src="bootstrap-datetimepicker.js"></script-->
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.12.2/js/bootstrap-select.min.js"></script>
 <script src="main.js"></script>
-<script src="js\timeSwitch.js"></script>
+<!--script src="js\timeSwitch.js"></script-->
 
 
 </html>
