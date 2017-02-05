@@ -26,12 +26,12 @@
 
 
 <div id="clock">
-<iframe src="index.html" name="targetframe" allowTransparency="true" scrolling="no" frameborder="0" style="height:100%;width:100%;position:relative;top:20px;bottom:0px;" ></iframe>
+<iframe src="index.html" name="targetframe" allowTransparency="true" scrolling="no" frameborder="0" style="height:100%;width:100%;position:relative;top:0px;bottom:5px;" ></iframe>
 </div>
 
 
 
-<div id="radioAll" style="padding-bottom: 2%;text-align: center">
+<div id="radioAll" style="padding-bottom: 1%;text-align: center; padding-top: 2%">
     <form >
         <label class="radio-inline">
             <input type="radio" name="optradio" id="facultyRadio" onchange="radioChange() ">Search Faculty name
@@ -130,7 +130,7 @@
 <div id="scheduleFragment" style="display: none">
 
     <div id="dayPicker" style="text-align: center; padding-bottom: 2%">
-        <select class="selectpicker dayPickerr" data-live-search="true" >
+        <select class="selectpicker dayPickerr" data-live-search="true" id="daySchedulePicker">
             <option>Monday</option>
             <option>Tuesday</option>
             <option>Wednesday</option>
@@ -182,16 +182,16 @@
     </div>
 
 
-    <div id="displaySchedule" style="padding-top:5%;display: block " >
-        <div class="container " id="mainDivSchedule">
+    <div id="displaySchedule" style="padding-top:1%;display: none " >
+        <div class="container-fluid " id="mainDivSchedule">
 
             <hr>
 
-            <div class="col-md-3" style="text-align: center; color: #ffffff; background-color: #000000; padding: 0%" id="displayScheduleCol1">
+            <div class="col-sm-3" style="text-align: center; color: #ffffff; background-color: #000000; padding: 0%" id="displayScheduleCol1">
 
 
             </div>
-            <div class="col-md-9" style="text-align: center; color: #ffffff; background-color: #000000; padding: 0%" id="displayScheduleCol2">
+            <div class="col-sm-9" style="text-align: center; color: #ffffff; background-color: #000000; padding: 0%" id="displayScheduleCol2">
 
 
 

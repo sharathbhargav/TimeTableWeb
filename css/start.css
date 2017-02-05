@@ -14,6 +14,10 @@ vertical-align: middle;
     text-align: center;
 
 }
+#clock
+{
+    height: 100px;
+}
 
 #mainDiv
 {
@@ -26,9 +30,10 @@ vertical-align: middle;
 
 #mainDivSchedule
 {
-    width: 600px;
+    width: 700px;
     height: 50vh; /* %-height of the viewport */
     position: relative;
     overflow-y: scroll;
+    overflow-x: scroll;
 
 }
