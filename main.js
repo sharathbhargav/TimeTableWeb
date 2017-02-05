@@ -35,12 +35,9 @@ function changeNavSchedule()
 
 
 
-{
-    document.getElementById('displaySchedule').style.display='block';
-    displaySchedule();
-}
 
-function displaySchedule()
+
+function displaySchedule(data)
 {
     var col1=document.getElementById('displayScheduleCol1');
     var col2=document.getElementById('displayScheduleCol2');
@@ -62,10 +59,10 @@ function displaySchedule()
         totalDiv1.appendChild(heads[i]);
     }
 
-
-    values[0].innerHTML='Baaka';
-    values[1].innerHTML='5c';
-    values[2].innerHTML='Database application laboratory';
+	console.log("Sem=");
+    values[0].innerHTML=data['name'];
+    values[1].innerHTML=data['sem'];
+    values[2].innerHTML=data['sub'];
     for(var i=0;i<3;i++)
     {
         values[i].style.padding='0%';
@@ -146,27 +143,65 @@ function radioChange()
 
 
 
+
+function getData(phpAddress,keword,slot,day,type)
+{
+    $.ajax({
+        type: 'POST',
+        url: phpAddress,
+        data: { keyword: keword, slot: slot, day:day, type:type },
+      //  dataType:'json',
+        success: function(response) {
+            console.log("response",response);
+            var jdata = JSON.parse(response);
+            console.log("After parse",jdata[0]['name']);
+            display(jdata);
+        }
+    });
+}
+
+
+function display(data)
+{
+    document.getElementById('displaySchedule').style.display='block';
+   // console.log("Data=",data);
+    for(var i=0;i<data.length;i++)
+    displaySchedule(data[i]);
+}
+
+
 function currentSearchButton(keyword)
-{}
+{
+	getData('queries_current.php',"'5c'","'1'","'FRI'","sem");
+    console.log("Search current "+keyword);
+}
 
 
 function currentRoomButton(keyword)
-{}
+{
+    console.log("Room current "+keyword);
+}
 
 function currentSemButton(keyword)
-{}
+{
+    console.log("Sem current "+keyword);
+}
 
 
 function scheduleSearchButton(keyword)
 {
+    console.log("search schedule "+keyword);
 }
 
 
-function schedulrRoomButton(keyword)
-{}
-
-
-function schedulrSemButton(keyword)
+function scheduleRoomButton(keyword)
 {
+    console.log("Schedule room "+keyword);
+}
 
+
+function scheduleSemButton(keyword)
+{
+    getData('queries_schedule.php',"'5c'",null,"'TUE'","sem");
+    console.log("schedule sem "+keyword);
 }

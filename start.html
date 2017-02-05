@@ -73,7 +73,7 @@
 
 
 
-        <button type="button" class="btn btn-danger center-block" id="searchCurrentButton" style="margin-top: 2%">Submit</button>
+        <button type="button" class="btn btn-danger center-block" id="searchCurrentButton" style="margin-top: 2%" onclick="currentSearchButton(document.getElementById('currentSearchBox').value.toString())">Submit</button>
 
 
 </div>
@@ -81,18 +81,18 @@
 
 
     <div id="RoomCurrentPicker" style="text-align: center; display: none">
-    <select class="selectpicker RoomCurrentPicker" data-live-search="true" >
+    <select class="selectpicker RoomCurrentPicker" data-live-search="true" id="currentRoomPicker" >
     </select>
 
-        <button type="button" class="btn btn-danger center-block" id="roomCurrentButton" style="margin-top: 2%">Submit</button>
+        <button type="button" class="btn btn-danger center-block" id="roomCurrentButton" style="margin-top: 2%" onclick="currentRoomButton(document.getElementById('currentRoomPicker').value.toString())">Submit</button>
 
     </div>
 
     <div id="SemCurrentPicker" style="text-align: center; display: none">
-        <select class="selectpicker SemCurrentPicker" data-live-search="true" >
+        <select class="selectpicker SemCurrentPicker" data-live-search="true" id="currentSemPicker">
         </select>
 
-        <button type="button" class="btn btn-danger center-block" id="semCurrentButton" style="margin-top: 2%">Submit</button>
+        <button type="button" class="btn btn-danger center-block" id="semCurrentButton" style="margin-top: 2%" onclick="currentSemButton(document.getElementById('currentSemPicker').value.toString())">Submit</button>
 
     </div>
 
@@ -157,32 +157,32 @@
         </div>
 
 
-        <button type="button" class="btn btn-danger center-block" id="searchScheduleButton" style="margin-top: 2%">Submit</button>
+        <button type="button" class="btn btn-danger center-block" id="searchScheduleButton" style="margin-top: 2%" onclick="scheduleSearchButton(document.getElementById('scheduleSearchBox').value.toString())">Submit</button>
 
 
     </div>
 
 
     <div id="RoomSchedulePicker" style="text-align: center; display: none">
-        <select class="selectpicker RoomSchedulePicker" data-live-search="true" >
+        <select class="selectpicker RoomSchedulePicker" data-live-search="true"  id="scheduleRoomPicker">
 
         </select>
 
-                <button type="button" class="btn btn-danger center-block" id="roomScheduleButton" style="margin-top: 2%">Submit</button>
+                <button type="button" class="btn btn-danger center-block" id="roomScheduleButton" style="margin-top: 2%" onclick="scheduleRoomButton(document.getElementById('scheduleRoomPicker').value.toString())">Submit</button>
 
     </div>
 
     <div id="SemSchedulePicker" style="text-align: center; display: none">
-        <select class="selectpicker SemSchedulePicker" data-live-search="true" >
+        <select class="selectpicker SemSchedulePicker" data-live-search="true"  id="scheduleSemPicker">
 
         </select>
 
-        <button type="button" class="btn btn-danger center-block" id="semScheduleButton" style="margin-top: 2%">Submit</button>
+        <button type="button" class="btn btn-danger center-block" id="semScheduleButton" style="margin-top: 2%" onclick="scheduleSemButton(document.getElementById('scheduleSemPicker').value.toString())">Submit</button>
 
     </div>
 
 
-    <div id="displaySchedule" style="padding-top:5%;display: none " >
+    <div id="displaySchedule" style="padding-top:5%;display: block " >
         <div class="container " id="mainDivSchedule">
 
             <hr>
