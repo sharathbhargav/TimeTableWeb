@@ -17,6 +17,7 @@ function changeNavCurrent()
     mainFragment.style.display='block';
     scheduleFragment.style.display='none';
     document.getElementById('displaySchedule').style.display='none';
+    //document.getElementById(currentDisplay).style.display='none';
 }
 
 function changeNavSchedule()
@@ -92,18 +93,101 @@ function displaySchedule(data,globalHead)
 }
 
 
+
+function displayCurrent(data,globalHead)
+{
+    var col1=document.getElementById('displayCurrentCol1');
+    var col2=document.getElementById('displayCurrentCol2');
+
+    var totalDiv1=document.createElement('div');
+    var totalDiv2=document.createElement('div');
+    var heads=[document.createElement('p'),document.createElement('p'),document.createElement('p')];
+    var values=[document.createElement('p'),document.createElement('p'),document.createElement('p')];
+    console.log("Head len",Object.keys(globalHead).length);
+    for(var i=0;i<Object.keys(globalHead).length;i++) {
+        heads[i].innerHTML = globalHead['type'+(i+1)];
+
+    }
+    for(var i=0;i<Object.keys(globalHead).length;i++)
+    {
+        heads[i].style.padding='0%';
+        heads[i].style.margin='0%';
+        heads[i].style.fontSize='large';
+        totalDiv1.appendChild(heads[i]);
+    }
+
+    console.log("Sem=",globalHead['type1']);
+    data['slot']=slotConvert(data['slot']);
+
+    for(var i=0;i<Object.keys(globalHead).length;i++)
+        values[i].innerHTML=data[globalHead['type'+(i+1)]];
+
+    for(var i=0;i<Object.keys(globalHead).length;i++)
+    {
+        values[i].style.padding='0%';
+        values[i].style.margin='0%';
+        values[i].style.fontSize='large';
+        totalDiv2.appendChild(values[i]);
+    }
+
+
+
+
+    var colors=['orange','white','black'];
+
+    console.log("Number=",Math.random()+"  "+random%2?0:1);
+    totalDiv1.style.backgroundColor=colors[random%2?0:1];
+    totalDiv1.style.color=colors[2];
+    totalDiv2.style.backgroundColor=colors[random%2?1:0];
+    totalDiv2.style.color=colors[2];
+    random=random+1;
+
+    col1.appendChild(totalDiv1);
+    col2.appendChild(totalDiv2);
+
+}
+
+
+
+
 function addValueToSpinner()
 {
-    for(var i=0;i<10;i++)
-    {
-        addItem("Room current "+i,i,'.RoomSchedulePicker');
-       // addItem("Sem current "+i,i,'.SemSchedulePicker');
-        addItem("Room schedule "+i,i,'.RoomCurrentPicker');
-        addItem("Sem schedule "+i,i,'.SemCurrentPicker');
-    }
-    addItem("3c",i,'.SemSchedulePicker');
-    addItem("5c",i,'.SemSchedulePicker');
+
+var name=[],init=[],sem=[],room=[];
+    var jData=null;
+    $.ajax({
+        type: 'GET',
+        url: 'queris_autoComplete.php',
+
+
+        success: function (response) {
+
+           jData=JSON.parse(response);
+            //console.log("Jdata",response);
+            console.log("Room length",jData[1]['tag']);
+            init=jData[1]['tag'].toArray();
+        }});
+   console.log("tag",init.length);
+
+ //
+
+ //  for(var i=0;i<room.length;i++)
+ //  {
+ //      console.log("Room",room[i]);
+ //      addItem(room[i], i, '.RoomSchedulePicker');
+ //      addItem(room[i], i, '.RoomCurrentPicker');
+ //  }
+  // for (var i = 0; i < 10; i++) {
+  //     //
+  //     // addItem("Sem current "+i,i,'.SemSchedulePicker');
+  //     //  addItem("Room schedule " + i, i, '.RoomCurrentPicker');
+  //     console.log("semmm",jData[0]['sem'][i]);
+  //     addItem(jData[0]['sem'][i], i, '.SemCurrentPicker');
+  //     addItem(jData[0]['sem'][i], i, '.SemSchedulePicker');
+  // }
+
 }
+
 
 
 function addItem(name,val,picker) {
@@ -179,20 +263,50 @@ function getData(phpAddress,keword,slot,day,type)
 
 function display(data)
 {
+
+
+
+    console.log("Data len",Object.keys(data[0]).length);
+    if(Object.keys(data[0]).length==4) {
+        document.getElementById('displaySchedule').style.display='block';
+        clearDisplaySchedule();
+        for (var i = 1; i < data.length; i++)
+            displaySchedule(data[i], data[0]);
+    }
+    else if(Object.keys(data[0]).length==3)
+    {
+        document.getElementById('currentDisplay').style.display='block';
+        clearDisplayCurrent();
+        for (var i = 1; i < data.length; i++)
+            displayCurrent(data[i], data[0]);
+    }
+}
+
+
+function clearDisplaySchedule()
+{
     var div=document.getElementById('displayScheduleCol1');
     while(div.firstChild){
         div.removeChild(div.firstChild);
     }
-     div=document.getElementById('displayScheduleCol2');
+    div=document.getElementById('displayScheduleCol2');
     while(div.firstChild){
         div.removeChild(div.firstChild);
     }
 
-    document.getElementById('displaySchedule').style.display='block';
+}
 
+function clearDisplayCurrent()
+{
+    var div=document.getElementById('displayCurrentCol1');
+    while(div.firstChild){
+        div.removeChild(div.firstChild);
+    }
+    div=document.getElementById('displayCurrentCol2');
+    while(div.firstChild){
+        div.removeChild(div.firstChild);
+    }
 
-    for(var i=1;i<data.length;i++)
-    displaySchedule(data[i],data[0]);
 }
 
 function displayNothing(str)
@@ -203,13 +317,14 @@ function displayNothing(str)
 
 function currentSearchButton(keyword)
 {
-	getData('queries_current.php',"'5c'","'1'","'FRI'","sem");
+	getData('queries_current.php',"'"+keyword+"'","'1'","'FRI'","faculty");
     console.log("Search current "+keyword);
 }
 
 
 function currentRoomButton(keyword)
 {
+    getData('queries_current.php',"'512'","'5'","'FRI'","room");
     console.log("Room current "+keyword);
 }
 
@@ -222,13 +337,21 @@ function currentSemButton(keyword)
 function scheduleSearchButton(keyword)
 {
     console.log("search schedule "+keyword);
-    getData('queries_schedule.php',"'Y SHOBHA'",null,"'fri'","faculty");
+    var day=document.getElementById('daySchedulePicker').value;
+    console.log("Day=",day);
+    day=day.substring(0,3);
+    day.toLowerCase();
+    getData('queries_schedule.php',"'"+keyword+"'",null,"'"+day+"'","faculty");
 }
 
 
 function scheduleRoomButton(keyword)
 {
-    getData('queries_schedule.php',"'512'",null,"'fri'","room");
+    var day=document.getElementById('daySchedulePicker').value;
+    console.log("Day=",day);
+    day=day.substring(0,3);
+    day.toLowerCase();
+    getData('queries_schedule.php',"'502'",null,"'"+day+"'","room");
     console.log("Schedule room "+keyword);
 }
 

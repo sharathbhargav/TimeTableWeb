@@ -33,7 +33,6 @@ vertical-align: middle;
     width: 700px;
     height: 50vh; /* %-height of the viewport */
     position: relative;
+   overflow-x: scroll;
     overflow-y: scroll;
-    overflow-x: scroll;
-
 }
