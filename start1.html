@@ -60,7 +60,7 @@
 
             <div id="custom-search-input1">
                 <div class="input-group col-md-12">
-                    <input type="text" class="  search-query form-control" placeholder="Search" id="currentSearchBox" />
+                    <input type="text" class="search-query form-control typeahead" placeholder="Search" id="currentSearchBox" />
                                 <span class="input-group-btn">
                                     <!--button class="btn btn-danger" type="button" id="currentSearchButton" onclick="currentSearchButtonClick();console.log('Current clicked')">
                                       -->  <span class=" glyphicon glyphicon-search"></span>
@@ -157,7 +157,7 @@
         </div>
 
 
-        <button type="button" class="btn btn-danger center-block" id="searchScheduleButton" style="margin-top: 2%" onclick="scheduleSearchButton(document.getElementById('scheduleSearchBox').value.toString())">Submit</button>
+        <button type="button" class="btn btn-danger center-block" id="searchScheduleButton" style="margin-top: 2%" onclick="console.log('hvhj',document.getElementById('scheduleSearchBox').value);scheduleSearchButton(document.getElementById('scheduleSearchBox').value.toString())">Submit</button>
 
 
     </div>
@@ -212,7 +212,7 @@
 <script src="js\bootstrap.js"></script>
 
 <!--script src="bootstrap-datetimepicker.js"></script-->
-
+<script src="js\bootstrap3typeahead.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.12.2/js/bootstrap-select.min.js"></script>
 <script src="main.js"></script>
 <!--script src="js\timeSwitch.js"></script-->

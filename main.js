@@ -154,7 +154,7 @@ function addValueToSpinner()
 {
 
 var name=[],init=[],sem=[],room=[];
-    var jData=null;
+    var jData;
     $.ajax({
         type: 'GET',
         url: 'queris_autoComplete.php',
@@ -164,27 +164,55 @@ var name=[],init=[],sem=[],room=[];
 
            jData=JSON.parse(response);
             //console.log("Jdata",response);
-            console.log("Room length",jData[1]['tag']);
-            init=jData[1]['tag'].toArray();
+           console.log("Room length",jData['names']);
+    name=jData['names'];
+            room=jData['room'];
+            sem=jData['sem'];
+            init=jData['tag'];
+            console.log("Len",name[12]);
+            for(var i=0;i<room.length;i++)
+            {
+               // console.log("Room",name[i]);
+                addItem(room[i], i, '.RoomSchedulePicker');
+                 addItem(room[i], i, '.RoomCurrentPicker');
+            }
+            for(var i=0;i<sem.length;i++)
+            {
+                addItem(sem[i], i, '.SemCurrentPicker');
+                addItem(sem[i], i, '.SemSchedulePicker');
+            }
+
+            console.log("Name",name[8]);
+
+        //    typeAhead.data('typeahead').source = jData['names'];
+
+         //   typeAhead.on('typeahead: selected typeahead: autocompleted', function(e, datum) {
+         //       console.log('event');
+//
+         //   });
+         //   var asdf=name.toArray();
+            $('#currentSearchBox').typeahead({source: name.concat(init)});
+            $('#scheduleSearchBox').typeahead({source: name.concat(init)});
+       //     var myTypeahead =document.getElementById('currentSearchBox');
+       //     myTypeahead.typeahead({
+       //         source:name
+       //     });
+          //  var typeaheadObj = myTypeahead.data('typeahead');
+            //if(typeaheadObj) typeaheadObj.source = name;
+
+
+        //   var $myTypeahead1 = $('#scheduleSearchBox');
+        //   var typeaheadObj1 = $myTypeahead1.data('typeahead');
+        //   if(typeaheadObj1) typeaheadObj1.source =asdf;
+//
+
+           // });
+//
         }});
-   console.log("tag",init.length);
 
- //
 
- //  for(var i=0;i<room.length;i++)
- //  {
- //      console.log("Room",room[i]);
- //      addItem(room[i], i, '.RoomSchedulePicker');
- //      addItem(room[i], i, '.RoomCurrentPicker');
- //  }
-  // for (var i = 0; i < 10; i++) {
-  //     //
-  //     // addItem("Sem current "+i,i,'.SemSchedulePicker');
-  //     //  addItem("Room schedule " + i, i, '.RoomCurrentPicker');
-  //     console.log("semmm",jData[0]['sem'][i]);
-  //     addItem(jData[0]['sem'][i], i, '.SemCurrentPicker');
-  //     addItem(jData[0]['sem'][i], i, '.SemSchedulePicker');
-  // }
+
+
 
 }
 
@@ -324,7 +352,7 @@ function currentSearchButton(keyword)
 
 function currentRoomButton(keyword)
 {
-    getData('queries_current.php',"'512'","'5'","'FRI'","room");
+    getData('queries_current.php',"'"+keyword+"'","'"+currentSlot()+"'","'"+getDay()+"'","room");
     console.log("Room current "+keyword);
 }
 
@@ -348,10 +376,11 @@ function scheduleSearchButton(keyword)
 function scheduleRoomButton(keyword)
 {
     var day=document.getElementById('daySchedulePicker').value;
-    console.log("Day=",day);
+
     day=day.substring(0,3);
     day.toLowerCase();
-    getData('queries_schedule.php',"'502'",null,"'"+day+"'","room");
+    console.log("Day=12",day+"   "+keyword);
+    getData('queries_schedule.php',"'"+keyword+"'",null,"'"+day+"'","room");
     console.log("Schedule room "+keyword);
 }
 
@@ -407,4 +436,13 @@ function currentSlot()
   //  i--;
     console.log(hr+"    "+min+"   "+slotTime[i]);
     return slotTime[i];
+}
+function getDay()
+{
+    var date=new Date();
+    var day=date.getDay();
+    day=day.toString();
+    day.toLowerCase();
+    day=day.substring(0,3);
+    return day;
 }
