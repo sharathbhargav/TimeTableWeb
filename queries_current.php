@@ -31,7 +31,7 @@ function querySelection()
 		and c.mapid=s.mapid
 			and c.slot=".$slot
 		. "
-			order by CAST(c.slot AS INTEGER),c.room";
+			order by c.slot ,c.room";
 
 	//echo "Query".$query_sem;
 	$query_faculty_intials = "select c.slot,c.room,s.sem,s.sub from classes c,faculty f,subjects s
@@ -40,7 +40,7 @@ function querySelection()
 		and c.mapid=s.mapid
 						and c.day=" . $day
 		. "and c.slot=" . $slot
-		. "	order by CAST(c.slot AS INTEGER)";
+		. "	order by c.slot";
 	$query_faculty = "select c.slot,c.room,s.sem,s.sub from classes c,faculty f,subjects s
 				where
 				 c.mapid=s.mapid and f.name=" . $f_name
@@ -48,14 +48,14 @@ function querySelection()
 				and c.day=" . $day
 		. "and c.slot=" . $slot
 		. "
-				order by CAST(c.slot AS INTEGER)";
+				order by c.slot ";
 	$query_room = "select c.slot,s.sem,f.name,s.sub from classes c,faculty f,subjects s
 			 where c.room=" . $room_no
 		. "and c.day=" . $day
 		. "and f.fid=s.fid
 		and s.mapid=c.mapid
 			 and c.slot=" . $slot
-		. " order by CAST(c.slot AS INTEGER)";
+		. " order by c.slot";
 	switch ($type) {
 		case "sem":
 			$query = $query_sem;

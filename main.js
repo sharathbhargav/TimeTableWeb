@@ -159,7 +159,7 @@ var name=[],init=[],sem=[],room=[];
     $.ajax({
         type: 'GET',
         url: 'queris_autoComplete.php',
-
+        async:false,
 
         success: function (response) {
 

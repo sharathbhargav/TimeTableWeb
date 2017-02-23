@@ -16,26 +16,26 @@ $query_sem="select c.slot,c.room,f.name,s.sub from classes c,faculty f,subjects 
 			."and s.sem=".$sem
 			."and f.fid=s.fid 
 			and c.mapid=s.mapid 
-			order by CAST(c.slot AS INTEGER),c.room";
+			order by c.slot,c.room";
 //echo "in query sem schedule".$query_sem;
 $query_faculty_intials="select c.slot,c.room,s.sem,s.sub from classes c,faculty f,subjects s
 						where f.tag=".$f_name
 						."and s.fid=f.fid 
 						and c.day=".$day						
 						."and c.mapid=s.mapid 
-						order by CAST(c.slot AS INTEGER)";
+						order by c.slot";
 $query_faculty="select c.slot,c.room,s.sem,s.sub from classes c,faculty f,subjects s 
 				where f.name=".$f_name
 				."and s.fid=f.fid 
 				and c.day=".$day				
 				."and c.mapid=s.mapid 
-				order by CAST(c.slot AS INTEGER)";
+				order by c.slot";
 $query_room="select c.slot,s.sem,f.name,s.sub from classes c,faculty f,subjects s 
 			 where c.room=".$room_no
 			 ."and c.day=".$day 
 			 ."and f.fid=s.fid 
 			 and s.mapid=c.mapid 
-			 order by CAST(c.slot AS INTEGER)";
+			 order by c.slot";
 switch($type)
 {
 case "sem":
