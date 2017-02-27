@@ -1,5 +1,5 @@
 <?php
-//error_reporting(E_ALL & ~E_NOTICE);
+error_reporting(E_ALL & ~E_NOTICE);
 require 'dbconnect.inc.php';
 $type=$_POST['type'];
 date_default_timezone_set("Asia/Kolkata");
@@ -109,9 +109,9 @@ if($query_run=mysql_query($query))
 	while($row=mysql_fetch_array($query_run,MYSQL_ASSOC))
 	{
 		//$row_array[$params[0]] = slotConvert($row[$params[0]]);
-		$row_array[$params[0]] = $row[$params[0]];
-		$row_array[$params[1]] = $row[$params[1]];
-		$row_array[$params[2]] = $row[$params[2]];
+		$row_array[$params[0]] = $row[strtolower($params[0])];
+		$row_array[$params[1]] = $row[strtolower($params[1])];
+		$row_array[$params[2]] = $row[strtolower($params[2])];
 		array_push($return_array,$row_array);
 	}
 	$a=1;

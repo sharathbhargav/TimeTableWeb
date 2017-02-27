@@ -1,5 +1,6 @@
 <?php
 require 'dbconnect.inc.php';
+error_reporting(E_ALL & ~E_NOTICE);
 $query_name="select distinct name from faculty";
 $query_tag="select distinct tag from faculty";
 $query_sem="select distinct sem from subjects";

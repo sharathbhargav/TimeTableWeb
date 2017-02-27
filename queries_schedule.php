@@ -66,11 +66,11 @@ if($query_run=mysql_query($query))
 	//echo "Sucessful query";
 	while($row=mysql_fetch_array($query_run,MYSQL_ASSOC))
 	{
-			$slot_temp[]=$row[$params[0]];
-			$row_array[$params[0]] = slotConvert($row[$params[0]]);
-			$row_array[$params[1]] = $row[$params[1]];
-			$row_array[$params[2]] = $row[$params[2]];
-			$row_array[$params[3]] = $row[$params[3]];
+			$slot_temp[]=$row[strtolower($params[0])];
+			$row_array[$params[0]] = slotConvert($row[strtolower($params[0])]);
+			$row_array[$params[1]] = $row[strtolower($params[1])];
+			$row_array[$params[2]] = $row[strtolower($params[2])];
+			$row_array[$params[3]] = $row[strtolower($params[3])];
 			array_push($return_array,$row_array);
 	}
 }
