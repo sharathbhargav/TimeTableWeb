@@ -78,7 +78,7 @@ function displaySchedule(data,globalHead)
 
 
 
-    var colors=['orange','white','black'];
+    var colors=["#F4DECB","#F8EEE7",'black'];
 
     console.log("Number=",Math.random()+"  "+random%2?0:1);
     totalDiv1.style.backgroundColor=colors[random%2?0:1];
@@ -154,7 +154,8 @@ function addValueToSpinner()
 {
 
 
-var name=[],init=[],sem=[],room=[];
+
+    var name=[],init=[],sem=[],room=[];
     var jData;
     $.ajax({
         type: 'GET',
@@ -211,8 +212,10 @@ var name=[],init=[],sem=[],room=[];
 //
         }});
 
-
-
+   // $('.SemCurrentPicker').selectpicker('refresh');
+   // $('.SemSchedulePicker').selectpicker('refresh');
+   // $('.RoomSchedulePicker').selectpicker('refresh');
+   // $('.RoomCurrentPicker').selectpicker('refresh');
 
 
 }
@@ -223,7 +226,7 @@ function addItem(name,val,picker) {
     //$('.selectpicker').selectpicker();
     $(picker).append('<option val="'+val+'">'+name+'</option>');
     $(picker).css('display','inline');
-   // $(picker).selectpicker('refresh');
+  //  $(picker).selectpicker('refresh');
   //  $('.SemSchedulePicker').selectpicker('val', name);
 }
 
