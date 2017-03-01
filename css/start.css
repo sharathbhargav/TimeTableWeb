@@ -1,5 +1,5 @@
 body{
-    background:#202020;
+background: #202020;
 }
 .radio-inline{
     color: #ffffff;
@@ -43,3 +43,99 @@ align-self: center;
 
 
 
+
+
+
+
+
+
+
+.matrix {
+    margin: 1em auto;
+    font-family: Katakana;
+    width: 450px;
+    height: 288px;
+    overflow: hidden;
+    background: #000;
+    background-image: gradient(linear, 0% 90%, 0% 100%, from(rgba(0, 255, 0, 0)), to(rgba(0, 255, 0, 0.1)));
+    color: rgba(0, 255, 0, .7);
+    text-shadow: rgba(255, 255, 255, .8) 0px 0px 4px;
+    position: relative;
+}
+@keyframes fade {
+    0% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+    }
+}
+@keyframes fall {
+    from {
+        top: -250px;
+    }
+    to {
+        top: 300px;
+    }
+}
+@-webkit-keyframes fade {
+    0% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+    }
+}
+@-webkit-keyframes fall {
+    from {
+        top: -250px;
+    }
+    to {
+        top: 300px;
+    }
+}
+@-ms-keyframes fade {
+    0% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+    }
+}
+@-ms-keyframes fall {
+    from {
+        top: -250px;
+    }
+    to {
+        top: 300px;
+    }
+}
+.matrix span {
+    position: absolute;
+    top: 0;
+    -webkit-transform-origin: 0%;
+    -webkit-transform: rotate(90deg);
+    -webkit-animation-name: fall, fade;
+    -webkit-animation-iteration-count: infinite;
+    -webkit-animation-direction: normal;
+    -webkit-animation-timing-function: ease-out;
+    transform-origin: 0%;
+    transform: rotate(90deg);
+    animation-name: fall, fade;
+    animation-iteration-count: infinite;
+    animation-direction: normal;
+    animation-timing-function: ease-out;
+    -ms-animation-name: fall, fade;
+    -ms-animation-iteration-count: infinite;
+    -ms-animation-direction: normal;
+    -ms-animation-timing-function: ease-out;
+    -moz-transform-origin: 0%;
+    -moz-transform: rotate(90deg);
+    -moz-animation-name: fall, fade;
+    -moz-animation-iteration-count: infinite;
+    -moz-animation-direction: normal;
+    -moz-animation-timing-function: ease-out;
+    color: rgb(0, 255, 0);
+    text-shadow: rgb(255, 255, 255) 0px 0px 5px;
+    width: 100%;
+}

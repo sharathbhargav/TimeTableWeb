@@ -41,6 +41,7 @@ function changeNavSchedule()
 
 function displaySchedule(data,globalHead)
 {
+    document.getElementById('displaySchedule').style.display='block';
     var col1=document.getElementById('displayScheduleCol1');
     var col2=document.getElementById('displayScheduleCol2');
     var mainDivSchedule=document.getElementById('mainDivSchedule');
@@ -233,6 +234,8 @@ function addItem(name,val,picker) {
 
 function radioChange()
 {
+    clearDisplayCurrent();
+    clearDisplaySchedule();
     console.log("Entering radio cange");
     if(document.getElementById('facultyRadio').checked) {
         console.log("Faculty set");
@@ -326,6 +329,7 @@ function clearDisplaySchedule()
     while(div.firstChild){
         div.removeChild(div.firstChild);
     }
+    document.getElementById('displaySchedule').style.display='none';
 
 }
 
@@ -404,3 +408,17 @@ function scheduleSemButton(keyword)
 }
 
 
+
+
+
+$.fn.Matrix = function (options) {
+    var container = $(this);
+    container.addClass("matrix");
+    container.children().each(function () {
+        $(this).css("-webkit-animation-duration", Math.floor((Math.random() * 20) + 3) + "s").css("animation-duration", Math.floor((Math.random() * 20) + 3) + "s").css("-ms-animation-duration", Math.floor((Math.random() * 20) + 3) + "s").css("-moz-animation-duration", Math.floor((Math.random() * 20) + 3) + "s").css("left", Math.floor((Math.random() * parseInt($(container).width())) + 10)).css("font-size", Math.floor((Math.random() * 20) + 10) + "px");
+    });
+};
+
+jQuery(function ($) {
+    $("#matrix").Matrix();
+});
