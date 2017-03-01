@@ -31,7 +31,7 @@
 
 
 
-<div id="radioAll" style="padding-bottom: 1%;text-align: center; padding-top: 2%">
+<div id="radioAll" style="padding-bottom: 1%;text-align: center; padding-top: 1%">
     <form >
         <label class="radio-inline">
             <input type="radio" name="optradio" id="facultyRadio" onchange="radioChange() " checked="true">Search Faculty name
@@ -84,7 +84,7 @@
     <select class="selectpicker RoomCurrentPicker" data-live-search="true" id="currentRoomPicker" >
     </select>
 
-        <button type="button" class="btn btn-danger center-block" id="roomCurrentButton" style="margin-top: 2%" onclick="currentRoomButton(document.getElementById('currentRoomPicker').value.toString())">Submit</button>
+        <button type="button" class="btn btn-danger center-block" id="roomCurrentButton" style="margin-top: 1%" onclick="currentRoomButton(document.getElementById('currentRoomPicker').value.toString())">Submit</button>
 
     </div>
 
@@ -92,7 +92,7 @@
         <select class="selectpicker SemCurrentPicker" data-live-search="true" id="currentSemPicker">
         </select>
 
-        <button type="button" class="btn btn-danger center-block" id="semCurrentButton" style="margin-top: 2%" onclick="currentSemButton(document.getElementById('currentSemPicker').value.toString())">Submit</button>
+        <button type="button" class="btn btn-danger center-block" id="semCurrentButton" style="margin-top: 1%" onclick="currentSemButton(document.getElementById('currentSemPicker').value.toString())">Submit</button>
 
     </div>
 
@@ -129,7 +129,7 @@
 
 <div id="scheduleFragment" style="display: none">
 
-    <div id="dayPicker" style="text-align: center; padding-bottom: 2%">
+    <div id="dayPicker" style="text-align: center; padding-bottom: 1%">
         <select class="selectpicker dayPickerr" data-live-search="true" id="daySchedulePicker">
             <option>Monday</option>
             <option>Tuesday</option>
@@ -157,7 +157,7 @@
         </div>
 
 
-        <button type="button" class="btn btn-danger center-block" id="searchScheduleButton" style="margin-top: 2%" onclick="console.log('hvhj',document.getElementById('scheduleSearchBox').value);scheduleSearchButton(document.getElementById('scheduleSearchBox').value.toString())">Submit</button>
+        <button type="button" class="btn btn-danger center-block" id="searchScheduleButton" style="margin-top: 1%" onclick="console.log('hvhj',document.getElementById('scheduleSearchBox').value);scheduleSearchButton(document.getElementById('scheduleSearchBox').value.toString())">Submit</button>
 
 
     </div>
@@ -168,7 +168,7 @@
 
         </select>
 
-                <button type="button" class="btn btn-danger center-block" id="roomScheduleButton" style="margin-top: 2%" onclick="scheduleRoomButton(document.getElementById('scheduleRoomPicker').value.toString())">Submit</button>
+                <button type="button" class="btn btn-danger center-block" id="roomScheduleButton" style="margin-top: 1%" onclick="scheduleRoomButton(document.getElementById('scheduleRoomPicker').value.toString())">Submit</button>
 
     </div>
 
@@ -177,15 +177,16 @@
 
         </select>
 
-        <button type="button" class="btn btn-danger center-block" id="semScheduleButton" style="margin-top: 2%" onclick="scheduleSemButton(document.getElementById('scheduleSemPicker').value.toString())">Submit</button>
+        <button type="button" class="btn btn-danger center-block" id="semScheduleButton" style="margin-top: 1%" onclick="scheduleSemButton(document.getElementById('scheduleSemPicker').value.toString())">Submit</button>
 
     </div>
 
 
-    <div id="displaySchedule" style="padding-top:1%;display: none " >
+    <div id="displaySchedule" style="padding-top:1%;text-align: center;display: none " >
+
         <div class="container-fluid " id="mainDivSchedule">
 
-            <hr>
+
 
             <div class="col-sm-3" style="text-align: center; color: #ffffff; background-color: #000000; padding: 0%" id="displayScheduleCol1">
 
@@ -199,7 +200,9 @@
 
         </div>
 
+
     </div>
+
 </div>
 
 
@@ -209,6 +212,7 @@
 <link rel="stylesheet" type="text/css" href="css\searchBar.css">
 <script src="js\jquery-3.1.1.min.js"></script>
 
+<script src="js\jquery.nicescroll.js" type="text/javascript"></script>
 
 <script src="js\bootstrap.js"></script>
 

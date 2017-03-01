@@ -28,13 +28,18 @@ vertical-align: middle;
 
 }
 
-#mainDivSchedule
+#displaySchedule
 {
     width: 700px;
     height: 50vh; /* %-height of the viewport */
-    position: relative;
-   overflow-x: auto;
-    overflow-y: auto;
+
+overflow-x: auto;
+align-content: center;
+align-self: center;
+    text-align: center;
+    margin: 0px auto;
 }
-/*
+
+
+
 

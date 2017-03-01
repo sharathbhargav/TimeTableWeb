@@ -1,6 +1,7 @@
 
 <?php
 require 'dbconnect.inc.php';
+error_reporting(E_ALL & ~E_NOTICE);
 $type=$_POST['type'];
 $day=$_POST['day'];
 $sem=$_POST['keyword'];

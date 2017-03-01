@@ -78,7 +78,7 @@ function displaySchedule(data,globalHead)
 
 
 
-    var colors=["#F4DECB","#F8EEE7",'black'];
+    var colors=["#29B6F6","#B3E5FC",'black'];
 
     console.log("Number=",Math.random()+"  "+random%2?0:1);
     totalDiv1.style.backgroundColor=colors[random%2?0:1];
@@ -153,7 +153,7 @@ function displayCurrent(data,globalHead)
 function addValueToSpinner()
 {
 
-
+    $("#displaySchedule").niceScroll({cursorcolor:"#19F"});
 
     var name=[],init=[],sem=[],room=[];
     var jData;
